@@ -1,0 +1,49 @@
+---
+title: PWM Wind Simulation PCB Design
+date: 2025-12-01
+draft: false
+tags:
+  - blog
+  - simracing
+  - hardware
+---
+# THIS PROJECT IS CURRENTLY A WORK IN PROGRESS AND THE FINAL DESIGN HAS NOT BEEN TESTED
+
+
+ # Problem
+
+I wanted to add Wind simulation to my Sim Racing setup. As you speed up/down you get more/less wind in your face, and you get directional wind in the corners. This helps with immersion by giving a sense of speed. The PC connects to the Arduino which provides the PWM control for the fans, and the fans are then powered by an external 12v power supply.
+
+Software and hardware designs already exist for this, but they require that you build your own interface using an Arduino. 
+[SimHub](https://www.simhubdash.com/) is the software that most people use to integrate Arduino microcontrollers with sim racing software titles. SimHub allows you to choose and configure the type of Arduino you would like to use and automatically generates the Arduino Sketch file to interface with the hardware setup. The following image shows the Arduino design for a 2 fan setup using an [Arduino ProMicro](https://www.amazon.com/ATmega32U4-Micro-USB-Development-Compatible-ATmega328/dp/B07PHK8SMR). 
+
+![/WindSim/Pasted image 20251201110508.png](https://github.com/mil3sdavis/simwind/blob/main/WindSim/Pasted%20image%2020251201110508.png?raw=true)
+
+# Design
+
+
+I implemented this design on some protoboard and got a working protype. The fans used are 12V PC case fans and require their own power supply. In this design, the +12V and GND pins of the fans are connected to an external 12V power supply and the sense pins on the fan are left unconnected, and the PWM pin is connected to the corresponding output on the Arduino. 
+
+
+
+![[Pasted image 20251201110047.jpg]](https://github.com/mil3sdavis/simwind/blob/main/WindSim/Pasted%20image%2020251201110047.jpg?raw=true)
+
+
+
+
+The Prototype worked very well, but was not what I would consider pretty. So I took this as an opportunity to learn how to use some PCB design software. For this project I used [EasyEDA](https://easyeda.com/)to design the PCB and [PCBWay](https://www.pcbway.com/)to manufacture the boards. The image below is the schematic design of the board. 
+
+![[Pasted image 20251201113215.png]](https://github.com/mil3sdavis/simwind/blob/main/WindSim/Pasted%20image%2020251201113215.png?raw=true)
+
+
+This is the actual board layout with routing complete. 
+
+![[Pasted image 20251201113244.png]](https://github.com/mil3sdavis/simwind/blob/main/WindSim/Pasted%20image%2020251201113244.png?raw=true)
+
+After routing was complete, I exported the Gerber files for the design and submitted them to PCBWay for manufacture. 
+
+![[Pasted image 20251201110056.jpg]](https://github.com/user-attachments/assets/2b3ea19e-bedd-4bf7-bc6b-f245b0fb8912)
+
+
+
+
